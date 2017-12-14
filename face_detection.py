@@ -11,3 +11,6 @@ def detect(gray, frame):
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = frame[y:y+h, x:x+h]
         eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)
+         for (ex, ey, ew, eh) in eyes:
+             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 5)
+    return frame
